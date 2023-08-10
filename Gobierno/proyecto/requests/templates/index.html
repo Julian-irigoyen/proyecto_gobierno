@@ -1,0 +1,88 @@
+{% extends 'navBar.html' %}
+{% block content %}
+{% load bootstrap5 %}
+{% load widget_tweaks %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <style>
+
+    .main-container {
+        width: 97%;
+        margin-left: 1.5%;
+        margin-top: 20px;
+        border-width: 5px;
+        border-style: solid;
+    }
+
+    .video-container {
+        width: 500px;
+        height: 350px;
+        padding: 10px;
+        border-style: solid;
+        border-width: 5px;
+        border-color: red;
+    }
+
+    .video-content {
+        display: inline-block;
+        vertical-align: top; /* Para alinear contenido en la parte superior */
+    }
+
+    .video-image {
+        width: 368px;
+        height: 207px;
+    }
+
+    .video-info {
+        padding: 20px;
+    }
+
+    .video-title {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .video-description {
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+    .action-button {
+        margin-top: 20px;
+    }
+    .rows{
+        border-style: solid;
+        border-width: 5px;
+        border-color: blue ;
+        margin-bottom: 20px;
+    }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="rows">
+            <div class="video-container">
+                <div class="video-content">
+                    <!--<img src="/proyecto/imgs/sample-image.jpg" alt="Video 1" class="video-image">-->
+                    <p class="video-image">adsfas</p>
+                    <div class="video-info">
+                        <p class="video-title">
+                            Sample text
+                        </p>
+                        <p class="video-description">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                        </p>
+                        <button class="btn btn-primary action-button">Ver más</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}
