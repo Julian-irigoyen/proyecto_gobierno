@@ -1,0 +1,58 @@
+{% extends 'navBar.html' %}
+{% block content %}     
+{% load django_bootstrap5 %}
+{% load widget_tweaks %}
+
+<!DOCTYPE html>
+  <head>
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <style>
+        .formulario {
+            width: 90%;
+            margin-left: 5%;
+            margin-top: 30px;
+        }
+
+        .btn {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Formulario --> 
+    <div class="formulario text-center">
+        <div>
+            <form method="post">
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="{{ form.titulo.id_for_label }}">Titulo</label>
+                {{ form.titulo|add_class:"form-control" }}
+              </div>
+              <div class="form-group">
+                <label for="{{ form.descripcion.id_for_label }}">Descripcion</label>
+                {{ form.descripcion|add_class:"form-control" }}
+              </div>
+              <div class="form-group">
+                <label for="{{ form.solicitante.id_for_label }}">Solicitante</label>
+                {{ form.solicitante|add_class:"form-control" }}
+              </div>
+              <div class="form-group">
+                <label for="{{ form.fecha_solicitud.id_for_label }}">Fecha de solicitud</label>
+                {{ form.fecha_solicitud|add_class:"form-control" }}
+              </div>
+              <div class="form-group">
+                <label for="{{ form.estatus.id_for_label }}">Estatus</label>
+                {{ form.estatus|add_class:"form-control" }}
+              </div>
+            <button class="btn btn-success text-center" type="submit">Guardar</button>
+            </form>
+          </div>
+        </div>
+</body>
+</html>
+{% endblock %}
