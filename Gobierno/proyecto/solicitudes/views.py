@@ -65,14 +65,19 @@ class EliminarSolicitud(View):
         return redirect('/foro')
 
 def estadisticas_solitudes(request):
-    #
+
+    template_name = 'estadisticas_solicitudes.html'
+    #Ver el número total de solicitudes
     total_solicitudes = Solicitudes.objects.aggregate(total_solicitudes=Sum('estatus'))['total_solicitudes']
 
-    #
+    #Ver la solicitud más antigua   
     solicitud_mas_antigua = Solicitudes.objects.aggregate(solicitud_mas_antigua=Min('fecha_solicitud'))['solicitud_mas_antigua']
 
-    return render(request, 'estadisticas_solicitudes.html', {
-        'total_paginas' : total_solicitudes,
-        'solicitud_mas_antigua' : solicitud_mas_antigua
+    solicitud_mas_reciente = Solicitudes.objects.aggregate(solicitud_mas_reciente=Max('fecha_solicitud'))['solicitud_mas_reciente']
+
+    return render(request, template_name, {
+        'total_solicitudes' : total_solicitudes,
+        'solicitud_mas_antigua' : solicitud_mas_antigua,
+        'solicitud_mas_reciente' : solicitud_mas_reciente
     })
 

@@ -28,4 +28,4 @@ def custom_login(request):
 
     return render(request, template_name)
 
-# Estadisticas en video 1 de agosto, minuto 23:00
+
